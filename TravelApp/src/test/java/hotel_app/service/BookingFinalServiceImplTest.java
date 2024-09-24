@@ -12,8 +12,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -36,7 +34,7 @@ public class BookingFinalServiceImplTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         traveler = new Traveler("John Doe", "john@example.com", "1234567890");
         room = new Room("Deluxe", 101, 1500.0, 2, true, "WiFi, AC");
@@ -56,7 +54,7 @@ public class BookingFinalServiceImplTest {
 
     @Test
     public void testGetAllBookings() {
-        List<BookingFinal> bookingsList = Arrays.asList(booking);
+        List<BookingFinal> bookingsList = Collections.singletonList(booking);
         when(bookingFinalDAO.getAllBookings()).thenReturn(bookingsList);
 
         List<BookingFinal> result = bookingFinalService.getAllBookings();
@@ -68,7 +66,7 @@ public class BookingFinalServiceImplTest {
 
     @Test
     public void testGetBookingsByTraveler() {
-        List<BookingFinal> bookingsList = Arrays.asList(booking);
+        List<BookingFinal> bookingsList = Collections.singletonList(booking);
         when(bookingFinalDAO.findByTravelerId(traveler.getId())).thenReturn(bookingsList);
 
         List<BookingFinal> result = bookingFinalService.getBookingsByTraveler(traveler.getId());
@@ -79,7 +77,7 @@ public class BookingFinalServiceImplTest {
 
     @Test
     public void testGetBookingByRoom() {
-        List<BookingFinal> bookingsList = Arrays.asList(booking);
+        List<BookingFinal> bookingsList = Collections.singletonList(booking);
         when(bookingFinalDAO.findByRoomId(room.getId())).thenReturn(bookingsList);
 
         List<BookingFinal> result = bookingFinalService.getBookingByRoom(room.getId());
@@ -90,7 +88,7 @@ public class BookingFinalServiceImplTest {
 
     @Test
     public void testGetBookingsByRoom() {
-        List<BookingFinal> bookingsList = Arrays.asList(booking);
+        List<BookingFinal> bookingsList = Collections.singletonList(booking);
         when(bookingFinalDAO.findByRoomId(room.getId())).thenReturn(bookingsList);
 
         List<BookingFinal> result = bookingFinalService.getBookingsByRoom(room.getId());

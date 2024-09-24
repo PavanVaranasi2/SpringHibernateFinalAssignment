@@ -9,14 +9,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.ui.Model;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -55,7 +54,7 @@ public class RoomControllerTest {
 
     @Test
     public void testListAllRooms() {
-        List<Room> rooms = Arrays.asList(room);
+        List<Room> rooms = Collections.singletonList(room);
         when(roomService.getAllRooms()).thenReturn(rooms);
 
         String viewName = roomController.listAllRooms(model);
@@ -127,7 +126,7 @@ public class RoomControllerTest {
         assertEquals(102, room.getRoomNumber());
         assertEquals(150.0, room.getPrice(), 0.01);
         assertEquals(3, room.getCapacity());
-        assertEquals(true, room.isAvailability());
+        assertTrue(room.isAvailability());
         assertEquals("redirect:/rooms", viewName);
     }
 
@@ -151,7 +150,7 @@ public class RoomControllerTest {
         assertEquals(102, room.getRoomNumber());
         assertEquals(150.0, room.getPrice(), 0.01);
         assertEquals(3, room.getCapacity());
-        assertEquals(false, room.isAvailability());
+        assertFalse(room.isAvailability());
         assertEquals("redirect:/rooms", viewName);
     }
 
@@ -180,7 +179,7 @@ public class RoomControllerTest {
 
     @Test
     public void testShowCreateRoomForm() {
-        List<Hotel> hotels = Arrays.asList(hotel);
+        List<Hotel> hotels = Collections.singletonList(hotel);
         when(hotelService.getAllHotels()).thenReturn(hotels);
 
         String viewName = roomController.showCreateRoomForm(model);

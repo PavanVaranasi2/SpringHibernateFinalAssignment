@@ -31,7 +31,7 @@ public class HotelControllerTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
 
         hotel = new Hotel();
         hotel.setId(1);
