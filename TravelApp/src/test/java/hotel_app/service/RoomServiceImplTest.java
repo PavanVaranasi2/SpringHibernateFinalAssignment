@@ -37,7 +37,6 @@ public class RoomServiceImplTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
 
         hotel = new Hotel();
         hotel.setId(1);

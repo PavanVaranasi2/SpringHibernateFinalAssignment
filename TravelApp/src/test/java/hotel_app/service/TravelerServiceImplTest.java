@@ -32,11 +32,6 @@ public class TravelerServiceImplTest {
     @InjectMocks
     private TravelerServiceImpl travelerService;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
     @Test
     public void testGetTravelers() {
         Traveler traveler1 = new Traveler("John Doe", "john@example.com", "1234567890");

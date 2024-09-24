@@ -34,7 +34,6 @@ public class BookingFinalServiceImplTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
 
         traveler = new Traveler("John Doe", "john@example.com", "1234567890");
         room = new Room("Deluxe", 101, 1500.0, 2, true, "WiFi, AC");

@@ -25,10 +25,6 @@ public class HotelServiceImplTest {
     @InjectMocks
     private HotelServiceImpl hotelService;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
 
     @Test
     public void testGetAllHotels() {

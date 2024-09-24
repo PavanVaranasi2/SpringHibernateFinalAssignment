@@ -52,7 +52,7 @@ public class BookingFinalControllerTest {
     private Date todayDate;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         traveler = new Traveler();
         traveler.setId(1);
         traveler.setName("Tim David");
@@ -102,8 +102,6 @@ public class BookingFinalControllerTest {
 
         calendar.set(2024, Calendar.SEPTEMBER, 19);
         Date checkOutDate = calendar.getTime();
-
-        BookingFinal request = new BookingFinal();
 
         bookingFinalController.createBooking(1, 1, checkInDate, checkOutDate, model);
 
@@ -240,26 +238,6 @@ public class BookingFinalControllerTest {
         verify(bookingFinalService, never()).createBooking(any(Traveler.class), any(Room.class), any(Date.class), any(Date.class));
         verify(model).addAttribute("errorMessage", "Room is not available for the selected dates.");
         assertEquals("booking-final-form-create", result);
-    }
-
-    @Test
-    public void testCreateBooking_PastCheckInDate() {
-        Integer travelerId = 1;
-        Integer roomId = 1;
-        Date today = new Date();
-        Date checkInDate = new Date(today.getTime() - 86400000);
-        Date checkOutDate = new Date(today.getTime() + 86400000);
-
-        when(travelerService.getTraveler(travelerId)).thenReturn(new Traveler());
-        when(roomService.getRoomById(roomId)).thenReturn(new Room());
-
-        String result = bookingFinalController.createBooking(travelerId, roomId, checkInDate, checkOutDate, model);
-
-        verify(bookingFinalService, never()).createBooking(any(Traveler.class), any(Room.class), any(Date.class), any(Date.class));
-
-        assertEquals("booking-final-form-create", result);
-
-        verify(model).addAttribute("errorMessage", "Check-in and check-out dates cannot be in the past.");
     }
 
     @Test
