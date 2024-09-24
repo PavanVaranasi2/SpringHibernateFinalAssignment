@@ -51,7 +51,7 @@
                     <td>
                         <a href="${pageContext.request.contextPath}/rooms/${room.id}">View Details</a> |
                         <a href="${pageContext.request.contextPath}/rooms/update/${room.id}">Edit</a> |
-                        <a href="javascript:void(0);" onclick="confirmDelete(${room.id})">Delete</a>
+                        <button class="delete-button" onclick="confirmDelete(${room.id})">Delete</button>
                     </td>
 
                 </tr>

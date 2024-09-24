@@ -51,7 +51,7 @@
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/bookings/final/${booking.id}">View</a> |
-                    <a href="javascript:void(0);" onclick="confirmDelete(${booking.id})">Delete</a>
+                    <button class="delete-button" onclick="confirmDelete(${room.id})">Delete</button>
                 </td>
             </tr>
         </c:forEach>

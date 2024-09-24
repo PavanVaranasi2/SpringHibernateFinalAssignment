@@ -49,7 +49,7 @@
                     <td class="actions">
                         <a href="${pageContext.request.contextPath}/hotels/${hotel.id}">View Details</a> |
                         <a href="${pageContext.request.contextPath}/hotels/update/${hotel.id}">Edit</a> |
-                        <a href="javascript:void(0);" onclick="confirmDelete(${hotel.id})">Delete</a>
+                        <button class="delete-button" onclick="confirmDelete(${room.id})">Delete</button>
                     </td>
                 </tr>
             </c:forEach>

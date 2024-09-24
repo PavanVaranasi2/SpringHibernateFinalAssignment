@@ -10,32 +10,33 @@
     <h1>Booking Details</h1>
 
     <div class="details">
-        <label>Traveler Name:</label>
-        <p>${traveler.name}</p>
+        <label for="travelerName">Traveler Name:</label>
+        <input type="text" id="travelerName" value="${traveler.name}" readonly>
 
-        <label>Traveler Email:</label>
-        <p>${traveler.email}</p>
+        <label for="travelerEmail">Traveler Email:</label>
+        <input type="email" id="travelerEmail" value="${traveler.email}" readonly>
 
-        <label>Traveler Phone:</label>
-        <p>${traveler.phoneNumber}</p>
+        <label for="travelerPhone">Traveler Phone:</label>
+        <input type="tel" id="travelerPhone" value="${traveler.phoneNumber}" readonly>
 
-        <label>Hotel Name:</label>
-        <p>${hotel.name}</p>
+        <label for="hotelName">Hotel Name:</label>
+        <input type="text" id="hotelName" value="${hotel.name}" readonly>
 
-        <label>Hotel Location:</label>
-        <p>${hotel.location}</p>
+        <label for="hotelLocation">Hotel Location:</label>
+        <input type="text" id="hotelLocation" value="${hotel.location}" readonly>
 
-        <label>Room Type:</label>
-        <p>${room.roomType}</p>
+        <label for="roomType">Room Type:</label>
+        <input type="text" id="roomType" value="${room.roomType}" readonly>
 
-        <label>Room Price:</label>
-        <p>${room.price}</p>
+        <label for="roomPrice">Room Price:</label>
+        <input type="text" id="roomPrice" value="${room.price}" readonly>
 
-        <label>Check-In Date:</label>
-        <p>${booking.checkInDate}</p>
+        <label for="checkInDate">Check-In Date:</label>
+        <input type="date" id="checkInDate" value="${booking.checkInDate}" readonly>
 
-        <label>Check-Out Date:</label>
-        <p>${booking.checkOutDate}</p>
+        <label for="checkOutDate">Check-Out Date:</label>
+        <input type="date" id="checkOutDate" value="${booking.checkOutDate}" readonly>
+
     </div>
     <br/>
     <br/>

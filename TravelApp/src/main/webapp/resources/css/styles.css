@@ -115,6 +115,18 @@ button:hover {
     background-color: #45a049;
 }
 
+.delete-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    text-decoration: underline;
+}
+
 .details {
     margin-bottom: 20px;
     max-width: 800px;

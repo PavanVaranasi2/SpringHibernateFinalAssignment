@@ -29,13 +29,7 @@ public class HotelServiceImpl implements HotelService {
     @Override
     @Transactional
     public Hotel getHotelById(int id) {
-        Hotel hotel = hotelDAO.getHotelById(id);
-
-//        if (hotel.getRooms() != null) {
-//            hotel.getRooms().size();
-//        }
-
-        return hotel;
+        return hotelDAO.getHotelById(id);
     }
 
     @Override
