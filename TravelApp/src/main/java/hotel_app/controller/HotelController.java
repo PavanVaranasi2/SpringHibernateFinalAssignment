@@ -14,8 +14,8 @@ import java.util.List;
 @RequestMapping("/hotels")
 public class HotelController {
 
-    private static final String hotelAttribute = "hotel";
-    private static final String hotelListRedirect = "redirect:/hotels/";
+    private static final String HOTEL_ATTRIBUTE = "hotel";
+    private static final String HOTEL_LIST_REDIRECT = "redirect:/hotels/";
 
     private final HotelService hotelService;
 
@@ -45,7 +45,7 @@ public class HotelController {
     public String viewHotelDetails(@PathVariable("id") int id, Model model) {
         Hotel hotel = hotelService.getHotelById(id);
         if (hotel != null) {
-            model.addAttribute(hotelAttribute, hotel);
+            model.addAttribute(HOTEL_ATTRIBUTE, hotel);
             model.addAttribute("rooms", hotel.getRooms());
             return "hotel-details";
         }
@@ -56,34 +56,34 @@ public class HotelController {
     public String showUpdateForm(@PathVariable("id") int id, Model model) {
         Hotel hotel = hotelService.getHotelById(id);
         if (hotel != null) {
-            model.addAttribute(hotelAttribute, hotel);
+            model.addAttribute(HOTEL_ATTRIBUTE, hotel);
             return "hotel-form-update";
         }
-        return hotelListRedirect;
+        return HOTEL_LIST_REDIRECT;
     }
 
     @PostMapping("/update")
-    public String updateHotel(@ModelAttribute(hotelAttribute) Hotel hotel) {
+    public String updateHotel(@ModelAttribute(HOTEL_ATTRIBUTE) Hotel hotel) {
         hotelService.saveHotel(hotel);
-        return hotelListRedirect;
+        return HOTEL_LIST_REDIRECT;
     }
 
     @GetMapping("/delete/{id}")
     public String deleteHotel(@PathVariable("id") int id) {
         hotelService.deleteHotel(id);
-        return hotelListRedirect;
+        return HOTEL_LIST_REDIRECT;
     }
 
     @GetMapping("/create")
     public String showCreateHotelForm(Model model) {
         Hotel hotel = new Hotel();
-        model.addAttribute(hotelAttribute, hotel);
+        model.addAttribute(HOTEL_ATTRIBUTE, hotel);
         return "hotel-form-create";
     }
 
     @PostMapping("/create")
-    public String createHotel(@ModelAttribute(hotelAttribute) Hotel hotel) {
+    public String createHotel(@ModelAttribute(HOTEL_ATTRIBUTE) Hotel hotel) {
         hotelService.saveHotel(hotel);
-        return hotelListRedirect;
+        return HOTEL_LIST_REDIRECT;
     }
 }

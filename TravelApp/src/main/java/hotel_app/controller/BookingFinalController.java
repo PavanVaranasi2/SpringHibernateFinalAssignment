@@ -22,9 +22,9 @@ import java.util.List;
 @RequestMapping("/bookings/final")
 public class BookingFinalController {
 
-    private final static String hotelWithRoomsJsp = "hotelsWithRooms";
-    private final static String allTravelersList = "travelers";
-    private final static String bookingFinalFormCreateJSP = "booking-final-form-create";
+    private static final String HOTELS_WITH_ROOMS_JSP = "hotelsWithRooms";
+    private static final String ALL_TRAVELERS_LIST = "travelers";
+    private static final String BOOKING_FINAL_FORM_CREATE_JSP = "booking-final-form-create";
 
     private final BookingFinalService bookingFinalService;
     private final TravelerService travelerService;
@@ -47,8 +47,8 @@ public class BookingFinalController {
     public String showCreateForm(Model model) {
         List<Traveler> travelers = travelerService.getTravelers();
         List<Hotel> hotelsWithRooms = hotelService.getAllHotelsWithRooms();
-        model.addAttribute(hotelWithRoomsJsp, hotelsWithRooms);
-        model.addAttribute(allTravelersList, travelers);
+        model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelsWithRooms);
+        model.addAttribute(ALL_TRAVELERS_LIST, travelers);
         model.addAttribute("bookingFinal", new BookingFinal());
 
         // Get today's date and format it for HTML input (yyyy-MM-dd)
@@ -56,7 +56,7 @@ public class BookingFinalController {
         String todayDate = dateFormat.format(new Date());
         model.addAttribute("todayDate", todayDate);
 
-        return bookingFinalFormCreateJSP;
+        return BOOKING_FINAL_FORM_CREATE_JSP;
     }
 
     @PostMapping("/create")
@@ -75,19 +75,19 @@ public class BookingFinalController {
             model.addAttribute("errorMessage", "Check-in and check-out dates cannot be in the past.");
 
             // Repopulate travelers and hotelWithRooms data
-            model.addAttribute(allTravelersList, travelerService.getTravelers());
-            model.addAttribute(hotelWithRoomsJsp, hotelService.getAllHotelsWithRooms());
+            model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
+            model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelService.getAllHotelsWithRooms());
 
-            return bookingFinalFormCreateJSP;
+            return BOOKING_FINAL_FORM_CREATE_JSP;
         }
 
         if (checkInDate.after(checkOutDate)) {
             model.addAttribute("errorMessage", "Invalid dates. Check-in date should be before check-out date.");
 
-            model.addAttribute(allTravelersList, travelerService.getTravelers());
-            model.addAttribute(hotelWithRoomsJsp, hotelService.getAllHotelsWithRooms());
+            model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
+            model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelService.getAllHotelsWithRooms());
 
-            return bookingFinalFormCreateJSP;
+            return BOOKING_FINAL_FORM_CREATE_JSP;
         }
 
         List<BookingFinal> existingBookings = bookingFinalService.getBookingsByRoom(roomId);
@@ -95,10 +95,10 @@ public class BookingFinalController {
             if ((checkInDate.before(booking.getCheckOutDate())) && (checkOutDate.after(booking.getCheckInDate()))) {
                 model.addAttribute("errorMessage", "Room is not available for the selected dates.");
 
-                model.addAttribute(allTravelersList, travelerService.getTravelers());
-                model.addAttribute(hotelWithRoomsJsp, hotelService.getAllHotelsWithRooms());
+                model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
+                model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelService.getAllHotelsWithRooms());
 
-                return bookingFinalFormCreateJSP;
+                return BOOKING_FINAL_FORM_CREATE_JSP;
             }
         }
 
