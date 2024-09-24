@@ -1,7 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <title>Traveler Form</title>
+    <meta content="text/html; charset=utf-8" />
     <style>
         body {
             font-family: Arial, sans-serif;

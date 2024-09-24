@@ -1,8 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Create Booking</title>
+    <meta content="text/html; charset=utf-8" />
+
     <style>
         input[type="text"], input[type="date"], select {
             width: 100%;

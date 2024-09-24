@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <title>Traveler Details</title>
+    <meta content="text/html; charset=utf-8" />
     <style>
         body {
             font-family: Arial, sans-serif;
