@@ -62,12 +62,6 @@ public class HotelController {
         return HOTEL_LIST_REDIRECT;
     }
 
-    @PostMapping("/update")
-    public String updateHotel(@ModelAttribute(HOTEL_ATTRIBUTE) Hotel hotel) {
-        hotelService.saveHotel(hotel);
-        return HOTEL_LIST_REDIRECT;
-    }
-
     @GetMapping("/delete/{id}")
     public String deleteHotel(@PathVariable("id") int id) {
         hotelService.deleteHotel(id);
