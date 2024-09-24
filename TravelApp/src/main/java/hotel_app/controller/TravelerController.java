@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("/traveler")
 public class TravelerController {
 
+    private static final String travelerAttribute = "traveler";
+
     private final TravelerService travelerService;
 
     @Autowired
@@ -33,13 +35,13 @@ public class TravelerController {
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
         Traveler traveler = new Traveler();
-        model.addAttribute("traveler", traveler);
+        model.addAttribute(travelerAttribute, traveler);
         return "traveler-form";
     }
 
     // Save traveler
     @PostMapping("/saveTraveler")
-    public String saveTraveler(@ModelAttribute("traveler") Traveler traveler) {
+    public String saveTraveler(@ModelAttribute(travelerAttribute) Traveler traveler) {
         travelerService.saveTraveler(traveler);
         return "redirect:/traveler/list";
     }
@@ -57,14 +59,14 @@ public class TravelerController {
                 traveler.getPhoneNumber()
         );
 
-        model.addAttribute("traveler", travelerDTO);
+        model.addAttribute(travelerAttribute, travelerDTO);
         return "traveler-details";
     }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable int id, Model model) {
         Traveler traveler = travelerService.getTraveler(id);
-        model.addAttribute("traveler", traveler);
+        model.addAttribute(travelerAttribute, traveler);
         return "traveler-form";
     }
 

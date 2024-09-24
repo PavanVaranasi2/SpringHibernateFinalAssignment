@@ -2,12 +2,10 @@ package hotel_app.service;
 
 import hotel_app.dao.HotelDAO;
 import hotel_app.model.Hotel;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;

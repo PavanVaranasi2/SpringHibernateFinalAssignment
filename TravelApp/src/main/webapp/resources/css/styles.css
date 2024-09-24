@@ -120,10 +120,14 @@ button:hover {
     border: none;
     color: #007bff;
     text-decoration: none;
+    padding: 0px;
     cursor: pointer;
 }
 
 .delete-button:hover {
+    background-color: red;
+    border: none;
+    padding: 0px;
     text-decoration: underline;
 }
 

@@ -18,6 +18,7 @@ public class TravelerServiceImpl implements TravelerService {
     private final TravelerDAO travelerDAO;
     private final BookingFinalDAO bookingFinalDAO;
 
+    @Autowired
     public TravelerServiceImpl(TravelerDAO travelerDAO, BookingFinalDAO bookingFinalDAO) {
         this.travelerDAO = travelerDAO;
         this.bookingFinalDAO = bookingFinalDAO;
@@ -44,12 +45,10 @@ public class TravelerServiceImpl implements TravelerService {
     @Override
     @Transactional
     public void deleteTraveler(int id) {
-        // Get bookings by travelerId
         List<BookingFinal> bookings = bookingFinalDAO.findByTravelerId(id);
 
-        // If there are active bookings, throw an exception to prevent deletion
         if (!bookings.isEmpty()) {
-            throw new RuntimeException("Traveler cannot be deleted as they have active bookings.");
+            throw new IllegalStateException("Traveler cannot be deleted as they have active bookings.");
         }
 
         travelerDAO.deleteTraveler(id);

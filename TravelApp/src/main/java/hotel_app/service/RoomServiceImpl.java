@@ -52,7 +52,7 @@ public class RoomServiceImpl implements RoomService {
         List<BookingFinal> bookings = bookingFinalDAO.findByRoomId(id);
 
         if (!bookings.isEmpty()) {
-            throw new RuntimeException("Room cannot be deleted as it has active bookings.");
+            throw new IllegalStateException("Room cannot be deleted as it has active bookings.");
         }
 
         roomDAO.deleteRoom(id);

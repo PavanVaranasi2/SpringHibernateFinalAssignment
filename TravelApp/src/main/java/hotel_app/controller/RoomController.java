@@ -15,6 +15,8 @@ import java.util.List;
 @RequestMapping("/rooms")
 public class RoomController {
 
+    private static final String roomListRedirect = "redirect:/rooms";
+
     private final RoomService roomService;
     private final HotelService hotelService;
 
@@ -38,7 +40,7 @@ public class RoomController {
             model.addAttribute("room", room);
             return "room-details";
         }
-        return "redirect:/rooms";
+        return roomListRedirect;
     }
 
     @GetMapping("/update/{id}")
@@ -48,14 +50,14 @@ public class RoomController {
             model.addAttribute("room", room);
             return "room-form-update";
         }
-        return "redirect:/rooms";
+        return roomListRedirect;
     }
 
     @PostMapping("/update")
     public String updateRoom(@ModelAttribute("room") Room updatedRoom, @ModelAttribute("availability") String availability) {
         Room existingRoom = roomService.getRoomById(updatedRoom.getId());
         if (existingRoom == null) {
-            return "redirect:/rooms";
+            return roomListRedirect;
         }
 
         existingRoom.setRoomType(updatedRoom.getRoomType());
@@ -67,13 +69,13 @@ public class RoomController {
 
         roomService.saveRoom(existingRoom);
 
-        return "redirect:/rooms";
+        return roomListRedirect;
     }
 
     @GetMapping("/delete/{id}")
     public String deleteRoom(@PathVariable("id") int id) {
         roomService.deleteRoom(id);
-        return "redirect:/rooms";
+        return roomListRedirect;
     }
 
     @GetMapping("/create")
@@ -91,6 +93,6 @@ public class RoomController {
         room.setHotel(hotel);
 
         roomService.saveRoom(room);
-        return "redirect:/rooms";
+        return roomListRedirect;
     }
 }

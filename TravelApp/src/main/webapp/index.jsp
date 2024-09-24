@@ -46,7 +46,6 @@
 
     <div class="navbar">
         <a href="${pageContext.request.contextPath}/traveler/list">Check Traveler List</a>
-        <!-- <a href="${pageContext.request.contextPath}/bookings/">Check Booking List</a> -->
         <a href="${pageContext.request.contextPath}/bookings/final">Check Final Booking List</a>
         <a href="${pageContext.request.contextPath}/hotels/">Check Hotel List</a>
         <a href="${pageContext.request.contextPath}/rooms/">Check Rooms List</a>

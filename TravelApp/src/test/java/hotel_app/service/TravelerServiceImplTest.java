@@ -5,12 +5,10 @@ import hotel_app.dao.TravelerDAO;
 import hotel_app.dto.TravelerDTO;
 import hotel_app.model.BookingFinal;
 import hotel_app.model.Traveler;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
