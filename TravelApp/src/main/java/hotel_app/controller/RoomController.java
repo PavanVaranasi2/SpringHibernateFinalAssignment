@@ -56,18 +56,15 @@ public class RoomController {
     @PostMapping("/update")
     public String updateRoom(@ModelAttribute("room") Room updatedRoom, @ModelAttribute("availability") String availability) {
         Room existingRoom = roomService.getRoomById(updatedRoom.getId());
-        if (existingRoom == null) {
-            return ROOM_LIST_REDIRECT;
+        if (existingRoom != null) {
+            existingRoom.setRoomType(updatedRoom.getRoomType());
+            existingRoom.setRoomNumber(updatedRoom.getRoomNumber());
+            existingRoom.setPrice(updatedRoom.getPrice());
+            existingRoom.setCapacity(updatedRoom.getCapacity());
+            existingRoom.setFacilities(updatedRoom.getFacilities());
+            existingRoom.setAvailability(availability.equalsIgnoreCase("true"));
+            roomService.saveRoom(existingRoom);
         }
-
-        existingRoom.setRoomType(updatedRoom.getRoomType());
-        existingRoom.setRoomNumber(updatedRoom.getRoomNumber());
-        existingRoom.setPrice(updatedRoom.getPrice());
-        existingRoom.setCapacity(updatedRoom.getCapacity());
-        existingRoom.setFacilities(updatedRoom.getFacilities());
-        existingRoom.setAvailability(availability.equalsIgnoreCase("true"));
-
-        roomService.saveRoom(existingRoom);
 
         return ROOM_LIST_REDIRECT;
     }

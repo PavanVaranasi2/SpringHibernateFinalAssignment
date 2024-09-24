@@ -25,6 +25,7 @@ public class BookingFinalController {
     private static final String HOTELS_WITH_ROOMS_JSP = "hotelsWithRooms";
     private static final String ALL_TRAVELERS_LIST = "travelers";
     private static final String BOOKING_FINAL_FORM_CREATE_JSP = "booking-final-form-create";
+    private static final String ERROR_MESSAGE_ATTRIBUTE = "errorMessage";
 
     private final BookingFinalService bookingFinalService;
     private final TravelerService travelerService;
@@ -72,7 +73,7 @@ public class BookingFinalController {
 
         Date today = new Date();
         if (checkInDate.before(today) || checkOutDate.before(today)) {
-            model.addAttribute("errorMessage", "Check-in and check-out dates cannot be in the past.");
+            model.addAttribute(ERROR_MESSAGE_ATTRIBUTE, "Check-in and check-out dates cannot be in the past.");
 
             // Repopulate travelers and hotelWithRooms data
             model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
@@ -82,7 +83,7 @@ public class BookingFinalController {
         }
 
         if (checkInDate.after(checkOutDate)) {
-            model.addAttribute("errorMessage", "Invalid dates. Check-in date should be before check-out date.");
+            model.addAttribute(ERROR_MESSAGE_ATTRIBUTE, "Invalid dates. Check-in date should be before check-out date.");
 
             model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
             model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelService.getAllHotelsWithRooms());
@@ -93,7 +94,7 @@ public class BookingFinalController {
         List<BookingFinal> existingBookings = bookingFinalService.getBookingsByRoom(roomId);
         for (BookingFinal booking : existingBookings) {
             if ((checkInDate.before(booking.getCheckOutDate())) && (checkOutDate.after(booking.getCheckInDate()))) {
-                model.addAttribute("errorMessage", "Room is not available for the selected dates.");
+                model.addAttribute(ERROR_MESSAGE_ATTRIBUTE, "Room is not available for the selected dates.");
 
                 model.addAttribute(ALL_TRAVELERS_LIST, travelerService.getTravelers());
                 model.addAttribute(HOTELS_WITH_ROOMS_JSP, hotelService.getAllHotelsWithRooms());
