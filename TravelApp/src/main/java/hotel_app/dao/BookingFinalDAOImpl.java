@@ -12,8 +12,12 @@ import java.util.List;
 @Repository
 public class BookingFinalDAOImpl implements BookingFinalDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public BookingFinalDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Transactional
     public void save(BookingFinal booking) {

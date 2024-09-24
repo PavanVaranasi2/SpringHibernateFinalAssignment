@@ -15,8 +15,12 @@ import java.util.List;
 @Service
 public class BookingFinalServiceImpl implements BookingFinalService {
 
+    private final BookingFinalDAO bookingFinalDAO;
+
     @Autowired
-    private BookingFinalDAO bookingFinalDAO;
+    public BookingFinalServiceImpl(BookingFinalDAO bookingFinalDAO) {
+        this.bookingFinalDAO = bookingFinalDAO;
+    }
 
     public void createBooking(Traveler traveler, Room room, Date checkIn, Date checkOut) {
         BookingFinal booking = new BookingFinal();

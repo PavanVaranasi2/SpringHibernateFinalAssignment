@@ -13,8 +13,12 @@ import java.util.List;
 @Repository
 public class RoomDAOImpl implements RoomDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public RoomDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Room> getAllRooms() {

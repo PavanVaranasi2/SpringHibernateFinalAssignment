@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class HotelServiceImpl implements HotelService {
 
+    private final HotelDAO hotelDAO;
+
     @Autowired
-    private HotelDAO hotelDAO;
+    public HotelServiceImpl(HotelDAO hotelDAO) {
+        this.hotelDAO = hotelDAO;
+    }
 
     @Override
     @Transactional

@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/traveler")
 public class TravelerController {
 
+    private final TravelerService travelerService;
+
     @Autowired
-    private TravelerService travelerService;
+    public TravelerController(TravelerService travelerService) {
+        this.travelerService = travelerService;
+    }
 
     // Show traveler list
     @GetMapping("/list")

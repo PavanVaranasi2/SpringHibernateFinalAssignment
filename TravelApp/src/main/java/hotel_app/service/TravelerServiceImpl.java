@@ -15,11 +15,13 @@ import java.util.List;
 @Service
 public class TravelerServiceImpl implements TravelerService {
 
-    @Autowired
-    private TravelerDAO travelerDAO;
+    private final TravelerDAO travelerDAO;
+    private final BookingFinalDAO bookingFinalDAO;
 
-    @Autowired
-    private BookingFinalDAO bookingFinalDAO;
+    public TravelerServiceImpl(TravelerDAO travelerDAO, BookingFinalDAO bookingFinalDAO) {
+        this.travelerDAO = travelerDAO;
+        this.bookingFinalDAO = bookingFinalDAO;
+    }
 
     @Override
     @Transactional

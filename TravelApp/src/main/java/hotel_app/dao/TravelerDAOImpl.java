@@ -12,8 +12,12 @@ import java.util.List;
 @Repository
 public class TravelerDAOImpl implements TravelerDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public TravelerDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Traveler> getTravelers() {

@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/hotels")
 public class HotelController {
 
+    private final HotelService hotelService;
+
     @Autowired
-    private HotelService hotelService;
+    public HotelController(HotelService hotelService) {
+        this.hotelService = hotelService;
+    }
 
     @GetMapping("/")
     public String listAllHotels(Model model) {

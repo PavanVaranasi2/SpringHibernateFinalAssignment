@@ -12,8 +12,12 @@ import java.util.List;
 @Repository
 public class HotelDAOImpl implements HotelDAO {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public HotelDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Hotel> getAllHotels() {

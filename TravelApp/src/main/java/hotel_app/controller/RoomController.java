@@ -15,11 +15,14 @@ import java.util.List;
 @RequestMapping("/rooms")
 public class RoomController {
 
-    @Autowired
-    private RoomService roomService;
+    private final RoomService roomService;
+    private final HotelService hotelService;
 
     @Autowired
-    private HotelService hotelService;
+    public RoomController(RoomService roomService, HotelService hotelService) {
+        this.hotelService = hotelService;
+        this.roomService = roomService;
+    }
 
     @GetMapping
     public String listAllRooms(Model model) {

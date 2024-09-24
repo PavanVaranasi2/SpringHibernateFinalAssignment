@@ -13,11 +13,14 @@ import java.util.List;
 @Service
 public class RoomServiceImpl implements RoomService {
 
-    @Autowired
-    private RoomDAO roomDAO;
+    private final RoomDAO roomDAO;
+    private final BookingFinalDAO bookingFinalDAO;
 
     @Autowired
-    private BookingFinalDAO bookingFinalDAO;
+    public RoomServiceImpl(RoomDAO roomDAO, BookingFinalDAO bookingFinalDAO) {
+        this.bookingFinalDAO = bookingFinalDAO;
+        this.roomDAO = roomDAO;
+    }
 
     @Override
     @Transactional

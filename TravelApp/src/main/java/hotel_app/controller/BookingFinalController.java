@@ -22,17 +22,21 @@ import java.util.List;
 @RequestMapping("/bookings/final")
 public class BookingFinalController {
 
-    @Autowired
-    private BookingFinalService bookingFinalService;
+    private final BookingFinalService bookingFinalService;
+    private final TravelerService travelerService;
+    private final RoomService roomService;
+    private final HotelService hotelService;
 
     @Autowired
-    private TravelerService travelerService;
-
-    @Autowired
-    private RoomService roomService;
-
-    @Autowired
-    private HotelService hotelService;
+    public BookingFinalController(BookingFinalService bookingFinalService,
+                                  TravelerService travelerService,
+                                  RoomService roomService,
+                                  HotelService hotelService) {
+        this.bookingFinalService = bookingFinalService;
+        this.travelerService = travelerService;
+        this.roomService = roomService;
+        this.hotelService = hotelService;
+    }
 
 
     @GetMapping("/create")
