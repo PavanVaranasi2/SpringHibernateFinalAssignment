@@ -5,35 +5,7 @@
     <title>Bookings List</title>
     <meta content="text/html; charset=utf-8" />
 
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 
     <script type="text/javascript">
         function confirmDelete(bookingId) {

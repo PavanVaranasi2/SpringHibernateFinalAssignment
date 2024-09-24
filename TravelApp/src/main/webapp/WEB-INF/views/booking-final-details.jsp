@@ -4,28 +4,7 @@
 <head>
     <title>Booking Details</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        .details {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .details label {
-            display: block;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h1>Booking Details</h1>

@@ -4,40 +4,7 @@
 <head>
     <title>Traveler List</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h2>Traveler List</h2>

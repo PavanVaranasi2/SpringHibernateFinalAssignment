@@ -5,56 +5,7 @@
     <title>Hotel Details</title>
     <meta content="text/html; charset=utf-8" />
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        strong {
-            color: #333;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f4f4f4;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: white;
-            background-color: #3498db;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        a:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h1>Hotel Details</h1>

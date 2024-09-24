@@ -4,32 +4,7 @@
 <head>
     <title>Traveler Form</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        form {
-            margin: 20px 0;
-        }
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h2>Create Traveler</h2>

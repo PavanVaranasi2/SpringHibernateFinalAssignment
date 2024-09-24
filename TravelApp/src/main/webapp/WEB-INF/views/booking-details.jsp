@@ -4,24 +4,7 @@
 <head>
     <title>Booking Details</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .details {
-            margin-bottom: 20px;
-        }
-        h3 {
-            color: #333;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
 

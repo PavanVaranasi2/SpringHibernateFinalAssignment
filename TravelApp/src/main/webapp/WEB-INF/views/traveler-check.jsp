@@ -4,23 +4,7 @@
 <head>
     <title>Traveler Check</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        input[type="text"], input[type="tel"], input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h2>Enter Your Email and Phone Number</h2>

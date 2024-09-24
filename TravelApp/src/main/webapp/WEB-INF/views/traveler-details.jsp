@@ -3,23 +3,7 @@
 <head>
     <title>Traveler Details</title>
     <meta content="text/html; charset=utf-8" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
     <h2>Traveler Details</h2>

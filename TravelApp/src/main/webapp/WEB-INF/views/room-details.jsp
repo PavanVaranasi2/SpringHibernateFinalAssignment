@@ -5,50 +5,7 @@
     <title>Room Details</title>
     <meta content="text/html; charset=utf-8" />
 
-    <!-- Internal CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1, h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        strong {
-            color: #333;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            color: white;
-            background-color: #3498db;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        a:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
 
