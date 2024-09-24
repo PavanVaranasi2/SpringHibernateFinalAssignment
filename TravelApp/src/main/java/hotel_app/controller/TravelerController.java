@@ -23,7 +23,6 @@ public class TravelerController {
         this.travelerService = travelerService;
     }
 
-    // Show traveler list
     @GetMapping("/list")
     public String listTravelers(Model model) {
         List<TravelerDTO> travelerDTOs = travelerService.getTravelerDTOs();
@@ -31,7 +30,6 @@ public class TravelerController {
         return "traveler-list";
     }
 
-    // Show form for adding a new traveler
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
         Traveler traveler = new Traveler();
@@ -39,19 +37,16 @@ public class TravelerController {
         return "traveler-form";
     }
 
-    // Save traveler
     @PostMapping("/saveTraveler")
     public String saveTraveler(@ModelAttribute(TRAVELER_ATTRIBUTE) Traveler traveler) {
         travelerService.saveTraveler(traveler);
         return "redirect:/traveler/list";
     }
 
-    // View traveler details
     @GetMapping("/details/{id}")
     public String travelerDetails(@PathVariable int id, Model model) {
         Traveler traveler = travelerService.getTraveler(id);
 
-        // Convert to DTO and mask the phone number
         TravelerDTO travelerDTO = new TravelerDTO(
                 traveler.getId(),
                 traveler.getName(),
@@ -70,7 +65,6 @@ public class TravelerController {
         return "traveler-form";
     }
 
-    // Delete traveler
     @GetMapping("/delete/{id}")
     public String deleteTraveler(@PathVariable int id) {
         travelerService.deleteTraveler(id);
