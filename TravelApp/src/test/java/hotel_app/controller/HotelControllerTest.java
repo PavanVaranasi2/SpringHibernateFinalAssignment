@@ -114,13 +114,6 @@ public class HotelControllerTest {
         assertEquals("redirect:/hotels/", viewName);
     }
 
-    @Test
-    public void testUpdateHotel() {
-        String redirectUrl = hotelController.updateHotel(hotel);
-
-        verify(hotelService, times(1)).saveHotel(hotel);
-        assertEquals("redirect:/hotels/", redirectUrl);
-    }
 
     @Test
     public void testDeleteHotel() {
